@@ -28,7 +28,9 @@
           packages = p: [ p.co-prompt ];
           buildInputs = [
             pkgs.haskellPackages.cabal-install
-            pkgs.haskellPackages.ghc
+            pkgs.haskell.compiler.ghc8107
+            pkgs.xorg.libX11
+            pkgs.xorg.libXext
             haskell-language-server
           ];
         };
