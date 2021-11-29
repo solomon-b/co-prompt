@@ -27,11 +27,11 @@
         devShell = pkgs.haskellPackages.shellFor {
           packages = p: [ p.co-prompt ];
           buildInputs = [
-            pkgs.haskellPackages.cabal-install
-            pkgs.haskell.compiler.ghc8107
-            pkgs.xorg.libX11
-            pkgs.xorg.libXext
-            haskell-language-server
+            #pkgs.haskellPackages.cabal-install
+            #pkgs.haskell.compiler.ghc8107
+            #pkgs.xorg.libX11
+            #pkgs.xorg.libXext
+            #haskell-language-server
           ];
         };
         defaultPackage = pkgs.haskellPackages.co-prompt;
