@@ -3,14 +3,69 @@ name:               co-prompt
 version:            0.1.0.0
 -- description:
 bug-reports:        https://github.com/solomon-b/co-prompt/
-author:             ssbothwell
+author:             Solomon Bothwell
 maintainer:         ssbothwell@gmail.com
 category:           prompt, ui
-extra-source-files: CHANGELOG.md
+extra-source-files: README.md
 
-executable co-prompt
-    main-is:          Main.hs
-    build-depends:    base
-                    , fudgets
-    hs-source-dirs:   app
-    default-language: Haskell2010
+--------------------------------------------------------------------------------
+
+common common-config
+  build-depends:
+    base >= 4.12 && < 5,
+
+  ghc-options:
+    -Wall
+    -Wcpp-undef
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wpartial-fields
+    -Werror=missing-home-modules
+    -Wno-star-is-type
+
+  default-language:
+    Haskell2010
+
+  default-extensions:
+    ImportQualifiedPost
+    LambdaCase
+
+--------------------------------------------------------------------------------
+
+library
+  import:
+    common-config
+    
+  exposed-modules:
+    CoPrompt
+
+  hs-source-dirs: src
+ 
+--------------------------------------------------------------------------------
+
+executable cli-demo
+  import:
+    common-config
+
+  main-is:
+    Main.hs
+  build-depends:
+    co-prompt,
+    fudgets
+
+  hs-source-dirs:   apps/cli-demo
+
+--------------------------------------------------------------------------------
+
+executable fudgets-demo
+  import:
+    common-config
+
+  main-is:
+    Main.hs
+  build-depends:
+    co-prompt,
+    fudgets
+
+  hs-source-dirs:   apps/fudgets-demo
