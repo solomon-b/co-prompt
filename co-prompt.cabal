@@ -28,6 +28,8 @@ common common-config
     Haskell2010
 
   default-extensions:
+    DeriveFunctor
+    DerivingStrategies
     ImportQualifiedPost
     LambdaCase
 
@@ -40,6 +42,11 @@ library
   exposed-modules:
     CoPrompt
 
+  build-depends:
+    containers,
+    directory,
+    filepath
+
   hs-source-dirs: src
  
 --------------------------------------------------------------------------------
@@ -50,6 +57,7 @@ executable cli-demo
 
   main-is:
     Main.hs
+
   build-depends:
     co-prompt,
     fudgets
