@@ -1,5 +1,10 @@
--- |
+{-# LANGUAGE EmptyCase #-}
+
 module Main where
 
+--------------------------------------------------------------------------------
+
+import CoPrompt
+
 main :: IO ()
-main = print "Hello World"
+main = mooreMain

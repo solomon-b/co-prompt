@@ -30,8 +30,13 @@ common common-config
   default-extensions:
     DeriveFunctor
     DerivingStrategies
+    GeneralizedNewtypeDeriving
     ImportQualifiedPost
     LambdaCase
+    NamedFieldPuns
+    OverloadedStrings
+    RecordWildCards
+    TypeFamilies
 
 --------------------------------------------------------------------------------
 
@@ -41,11 +46,17 @@ library
     
   exposed-modules:
     CoPrompt
+    CoPrompt.Old
+    CoPrompt.FilePath
 
   build-depends:
     containers,
     directory,
-    filepath
+    filepath,
+    free,
+    machines,
+    text,
+    unix
 
   hs-source-dirs: src
  
@@ -59,21 +70,29 @@ executable cli-demo
     Main.hs
 
   build-depends:
+    adjunctions,
     co-prompt,
-    fudgets
+    directory,
+    distributive,
+    filepath,
+    free,
+    machines,
+    text,
+    unix
 
   hs-source-dirs:   apps/cli-demo
 
 --------------------------------------------------------------------------------
 
-executable fudgets-demo
-  import:
-    common-config
+-- executable fudgets-demo
+--   import:
+--     common-config
 
-  main-is:
-    Main.hs
-  build-depends:
-    co-prompt,
-    fudgets
+--   main-is:
+--     Main.hs
+--   build-depends:
+--     co-prompt,
+--     fudgets,
+--     gtk3
 
-  hs-source-dirs:   apps/fudgets-demo
+--   hs-source-dirs:   apps/fudgets-demo
